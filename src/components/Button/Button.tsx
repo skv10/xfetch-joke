@@ -1,13 +1,14 @@
+type Props = { loading: boolean; onClick: () => void; label?: string };
 
-
-function Button () {
-//   const [count, setCount] = useState(0)
-
+export default function Button({ loading, onClick, label = "Fetch joke" }: Props) {
   return (
-    <>
-     <h1>Get started</h1>
-    </>
-  )
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={loading}
+      className="btn btn-primary"
+    >
+      {loading ? "Fetching..." : label}
+    </button>
+  );
 }
-
-export default Button;
